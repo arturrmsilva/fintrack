@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "fintrack",
+    "slug": "fintrack",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "br.edu.iesb.artur.fintrack"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "br.edu.iesb.artur.fintrack"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "scheme": "fintrack",
+    "plugins": [
+      "expo-router",
+      "expo-status-bar"
+    ]
+  }
+}
