@@ -76,6 +76,14 @@ As telas provisórias (Código 7, `app/index.tsx`, e Código 42) não foram cria
 - Foram mantidos os caminhos de ícones gerados pelo template no `app.json`, conforme o aviso do guia.
 - O `tsconfig.json` exclui os arquivos Deno das Edge Functions da checagem do app, evitando erros falsos do TypeScript.
 
+### 3.7 `.env` não estava no `.gitignore` (risco de vazar chaves)
+
+- **Sintoma:** ao conferir `git check-ignore -v .env`, nenhuma regra foi encontrada. O arquivo `.env` seria enviado ao GitHub.
+- **Causa:** o script de montagem só acrescentava as regras de segredos se a palavra `.env` não aparecesse no `.gitignore`. O template do Expo já traz `.env*.local`, então o script concluiu (erradamente) que não precisava acrescentar nada.
+- **Solução:** acrescentar manualmente o Código 6 do guia (`.env`, `.env.*` e `!.env.example`) e confirmar com `git check-ignore -v .env`, que passou a apontar a regra.
+- **Por que importa:** é exatamente o item do alerta da Etapa 17 ("o arquivo .env não pode aparecer na lista"). Nenhum `.env` chegou a ser commitado: `git ls-files` lista apenas o `.env.example`.
+- **Prevenção:** conferir sempre com `git status` e `git check-ignore -v .env` antes do primeiro push.
+
 ## 4. Validação executada
 
 | Verificação | Resultado |
